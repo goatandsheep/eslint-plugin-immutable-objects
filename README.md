@@ -1,26 +1,51 @@
 # eslint-plugin-immutable-objects
 
-ESlint plugin that forces declaring all const objects using Object.freeze.
+Const objects must be immutable
 
 ## Installation
 
-After having installed [ESLint](https://www.github.com/eslint/eslint), install the rule:
+You'll first need to install [ESLint](http://eslint.org):
 
-```bash
+```
+$ npm i eslint --save-dev
+```
+
+Next, install `eslint-plugin-immutable-objects`:
+
+```
 $ npm install eslint-plugin-immutable-objects --save-dev
 ```
 
-## Configuration
+**Note:** If you installed ESLint globally (using the `-g` flag) then you must also install `eslint-plugin-immutable-objects` globally.
 
-Add `immutable-objects` to your `.eslintrc`:
+## Usage
+
+Add `immutable-objects` to the plugins section of your `.eslintrc` configuration file. You can omit the `eslint-plugin-` prefix:
 
 ```json
 {
-  "plugins": [
-    "immutable-objects"
-  ],
-  "rules": {
-    "immutable-objects/immutable-objects": 2
-  }
+    "plugins": [
+        "immutable-objects"
+    ]
 }
 ```
+
+
+Then configure the rules you want to use under the rules section.
+
+```json
+{
+    "rules": {
+        "immutable-objects/const-freeze": 2
+    }
+}
+```
+
+## Supported Rules
+
+* `const-freeze`: discourages use of const on objects without `Object.freeze()`
+
+
+
+
+
